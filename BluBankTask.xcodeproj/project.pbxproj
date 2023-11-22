@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D08513E22B0EAA0B003D182F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08513E12B0EAA0B003D182F /* AppDelegate.swift */; };
+		D08513EB2B0EAA0E003D182F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D08513EA2B0EAA0E003D182F /* Assets.xcassets */; };
+		D08513EE2B0EAA0E003D182F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D08513EC2B0EAA0E003D182F /* LaunchScreen.storyboard */; };
+		D08513F92B0EAA0E003D182F /* BluBankTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08513F82B0EAA0E003D182F /* BluBankTaskTests.swift */; };
+		D08514172B0EAA99003D182F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514152B0EAA99003D182F /* HomeViewController.swift */; };
+		D08514182B0EAA99003D182F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08514162B0EAA99003D182F /* HomeViewController.xib */; };
+		D085141B2B0EAAF4003D182F /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085141A2B0EAAF4003D182F /* HomeViewModelProtocol.swift */; };
+		D085141D2B0EAB01003D182F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085141C2B0EAB01003D182F /* HomeViewModel.swift */; };
+		D08514202B0EABD4003D182F /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085141F2B0EABD4003D182F /* HomeModule.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D08513F52B0EAA0E003D182F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D08513D62B0EAA0B003D182F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D08513DD2B0EAA0B003D182F;
+			remoteInfo = BluBankTask;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D08513DE2B0EAA0B003D182F /* BluBankTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluBankTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D08513E12B0EAA0B003D182F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D08513EA2B0EAA0E003D182F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D08513ED2B0EAA0E003D182F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D08513EF2B0EAA0E003D182F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D08513F42B0EAA0E003D182F /* BluBankTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluBankTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D08513F82B0EAA0E003D182F /* BluBankTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluBankTaskTests.swift; sourceTree = "<group>"; };
+		D08514152B0EAA99003D182F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D08514162B0EAA99003D182F /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		D085141A2B0EAAF4003D182F /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
+		D085141C2B0EAB01003D182F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		D085141F2B0EABD4003D182F /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D08513DB2B0EAA0B003D182F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D08513F12B0EAA0E003D182F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D08513D52B0EAA0B003D182F = {
+			isa = PBXGroup;
+			children = (
+				D08513E02B0EAA0B003D182F /* BluBankTask */,
+				D08513F72B0EAA0E003D182F /* BluBankTaskTests */,
+				D08513DF2B0EAA0B003D182F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D08513DF2B0EAA0B003D182F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D08513DE2B0EAA0B003D182F /* BluBankTask.app */,
+				D08513F42B0EAA0E003D182F /* BluBankTaskTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D08513E02B0EAA0B003D182F /* BluBankTask */ = {
+			isa = PBXGroup;
+			children = (
+				D08514122B0EAA6C003D182F /* Navigations */,
+				D08514112B0EAA29003D182F /* SupportingFiles */,
+				D08513EF2B0EAA0E003D182F /* Info.plist */,
+			);
+			path = BluBankTask;
+			sourceTree = "<group>";
+		};
+		D08513F72B0EAA0E003D182F /* BluBankTaskTests */ = {
+			isa = PBXGroup;
+			children = (
+				D08513F82B0EAA0E003D182F /* BluBankTaskTests.swift */,
+			);
+			path = BluBankTaskTests;
+			sourceTree = "<group>";
+		};
+		D08514112B0EAA29003D182F /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D08513E12B0EAA0B003D182F /* AppDelegate.swift */,
+				D08513EA2B0EAA0E003D182F /* Assets.xcassets */,
+				D08513EC2B0EAA0E003D182F /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		D08514122B0EAA6C003D182F /* Navigations */ = {
+			isa = PBXGroup;
+			children = (
+				D08514132B0EAA71003D182F /* Home */,
+			);
+			path = Navigations;
+			sourceTree = "<group>";
+		};
+		D08514132B0EAA71003D182F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D085141E2B0EABC2003D182F /* Cells */,
+				D08514192B0EAAE4003D182F /* ViewModel */,
+				D08514142B0EAA7A003D182F /* ViewController */,
+				D085141F2B0EABD4003D182F /* HomeModule.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D08514142B0EAA7A003D182F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D08514152B0EAA99003D182F /* HomeViewController.swift */,
+				D08514162B0EAA99003D182F /* HomeViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D08514192B0EAAE4003D182F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D085141A2B0EAAF4003D182F /* HomeViewModelProtocol.swift */,
+				D085141C2B0EAB01003D182F /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D085141E2B0EABC2003D182F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D08513DD2B0EAA0B003D182F /* BluBankTask */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D08514082B0EAA0F003D182F /* Build configuration list for PBXNativeTarget "BluBankTask" */;
+			buildPhases = (
+				D08513DA2B0EAA0B003D182F /* Sources */,
+				D08513DB2B0EAA0B003D182F /* Frameworks */,
+				D08513DC2B0EAA0B003D182F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BluBankTask;
+			productName = BluBankTask;
+			productReference = D08513DE2B0EAA0B003D182F /* BluBankTask.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D08513F32B0EAA0E003D182F /* BluBankTaskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D085140B2B0EAA0F003D182F /* Build configuration list for PBXNativeTarget "BluBankTaskTests" */;
+			buildPhases = (
+				D08513F02B0EAA0E003D182F /* Sources */,
+				D08513F12B0EAA0E003D182F /* Frameworks */,
+				D08513F22B0EAA0E003D182F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D08513F62B0EAA0E003D182F /* PBXTargetDependency */,
+			);
+			name = BluBankTaskTests;
+			productName = BluBankTaskTests;
+			productReference = D08513F42B0EAA0E003D182F /* BluBankTaskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D08513D62B0EAA0B003D182F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					D08513DD2B0EAA0B003D182F = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					D08513F32B0EAA0E003D182F = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = D08513DD2B0EAA0B003D182F;
+					};
+				};
+			};
+			buildConfigurationList = D08513D92B0EAA0B003D182F /* Build configuration list for PBXProject "BluBankTask" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D08513D52B0EAA0B003D182F;
+			productRefGroup = D08513DF2B0EAA0B003D182F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D08513DD2B0EAA0B003D182F /* BluBankTask */,
+				D08513F32B0EAA0E003D182F /* BluBankTaskTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D08513DC2B0EAA0B003D182F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D08513EE2B0EAA0E003D182F /* LaunchScreen.storyboard in Resources */,
+				D08513EB2B0EAA0E003D182F /* Assets.xcassets in Resources */,
+				D08514182B0EAA99003D182F /* HomeViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D08513F22B0EAA0E003D182F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D08513DA2B0EAA0B003D182F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D085141B2B0EAAF4003D182F /* HomeViewModelProtocol.swift in Sources */,
+				D08513E22B0EAA0B003D182F /* AppDelegate.swift in Sources */,
+				D08514202B0EABD4003D182F /* HomeModule.swift in Sources */,
+				D08514172B0EAA99003D182F /* HomeViewController.swift in Sources */,
+				D085141D2B0EAB01003D182F /* HomeViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D08513F02B0EAA0E003D182F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D08513F92B0EAA0E003D182F /* BluBankTaskTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D08513F62B0EAA0E003D182F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D08513DD2B0EAA0B003D182F /* BluBankTask */;
+			targetProxy = D08513F52B0EAA0E003D182F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D08513EC2B0EAA0E003D182F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D08513ED2B0EAA0E003D182F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D08514062B0EAA0F003D182F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D08514072B0EAA0F003D182F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D08514092B0EAA0F003D182F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37PRXS9M74;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BluBankTask/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FarazKarimi.Blu.BluBankTask;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D085140A2B0EAA0F003D182F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37PRXS9M74;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BluBankTask/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FarazKarimi.Blu.BluBankTask;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D085140C2B0EAA0F003D182F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37PRXS9M74;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FarazKarimi.Blu.BluBankTaskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluBankTask.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BluBankTask";
+			};
+			name = Debug;
+		};
+		D085140D2B0EAA0F003D182F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37PRXS9M74;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FarazKarimi.Blu.BluBankTaskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluBankTask.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BluBankTask";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D08513D92B0EAA0B003D182F /* Build configuration list for PBXProject "BluBankTask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D08514062B0EAA0F003D182F /* Debug */,
+				D08514072B0EAA0F003D182F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D08514082B0EAA0F003D182F /* Build configuration list for PBXNativeTarget "BluBankTask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D08514092B0EAA0F003D182F /* Debug */,
+				D085140A2B0EAA0F003D182F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D085140B2B0EAA0F003D182F /* Build configuration list for PBXNativeTarget "BluBankTaskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D085140C2B0EAA0F003D182F /* Debug */,
+				D085140D2B0EAA0F003D182F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D08513D62B0EAA0B003D182F /* Project object */;
+}
