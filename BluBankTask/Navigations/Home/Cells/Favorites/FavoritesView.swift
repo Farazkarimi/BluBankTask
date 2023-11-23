@@ -32,7 +32,11 @@ final class FavoritesView: UIView, UIContentView, Xibbed {
     private func setup() {
         xibSetup()
         updateConfiguration()
-        imageView.layer.cornerRadius = 60/2
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imageView.layer.cornerRadius = imageView.bounds.width/2
     }
 
     required init?(coder: NSCoder) {
