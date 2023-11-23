@@ -19,7 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setRootView() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = HomeViewModule.build(with: .init())
+        let networkManager: NetworkManagerProtocol = URLSessionNetworkManager()
+        let databaseManager: DatabaseManagerProtocol = Database()
+        let homeDAO: HomeDAOProtocol = HomeDAO(databaseManager: databaseManager)
+        let repository: HomeRepositoryProtocol = HomeRepository(networkManager: networkManager, homeDAO: homeDAO)
+        window?.rootViewController = HomeViewModule.build(with: .init(repository: repository))
         window?.makeKeyAndVisible()
     }
 }

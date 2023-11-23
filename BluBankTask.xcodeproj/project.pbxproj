@@ -40,6 +40,14 @@
 		D085145C2B0EBD90003D182F /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085145B2B0EBD90003D182F /* IndicatorView.swift */; };
 		D085145E2B0EBD9F003D182F /* IndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D085145D2B0EBD9F003D182F /* IndicatorView.xib */; };
 		D08514602B0EBE2A003D182F /* IndicatorViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085145F2B0EBE2A003D182F /* IndicatorViewConfiguration.swift */; };
+		D08514642B0F4CB3003D182F /* TransferEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514632B0F4CB3003D182F /* TransferEndPoints.swift */; };
+		D08514662B0F4CC7003D182F /* EndpointHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514652B0F4CC7003D182F /* EndpointHelpers.swift */; };
+		D08514682B0F4CE1003D182F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514672B0F4CE1003D182F /* NetworkManager.swift */; };
+		D085146A2B0F4D44003D182F /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514692B0F4D44003D182F /* HomeRepository.swift */; };
+		D085146D2B0F500B003D182F /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085146C2B0F500B003D182F /* UserDefaultsProtocol.swift */; };
+		D085146F2B0F5040003D182F /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085146E2B0F5040003D182F /* DatabaseManager.swift */; };
+		D08514712B0F506F003D182F /* HomeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514702B0F506F003D182F /* HomeDAO.swift */; };
+		D08514732B0F735C003D182F /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514722B0F735C003D182F /* Loadable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +97,14 @@
 		D085145B2B0EBD90003D182F /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		D085145D2B0EBD9F003D182F /* IndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndicatorView.xib; sourceTree = "<group>"; };
 		D085145F2B0EBE2A003D182F /* IndicatorViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorViewConfiguration.swift; sourceTree = "<group>"; };
+		D08514632B0F4CB3003D182F /* TransferEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferEndPoints.swift; sourceTree = "<group>"; };
+		D08514652B0F4CC7003D182F /* EndpointHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointHelpers.swift; sourceTree = "<group>"; };
+		D08514672B0F4CE1003D182F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D08514692B0F4D44003D182F /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
+		D085146C2B0F500B003D182F /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
+		D085146E2B0F5040003D182F /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		D08514702B0F506F003D182F /* HomeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDAO.swift; sourceTree = "<group>"; };
+		D08514722B0F735C003D182F /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +146,8 @@
 		D08513E02B0EAA0B003D182F /* BluBankTask */ = {
 			isa = PBXGroup;
 			children = (
+				D085146B2B0F4FF0003D182F /* Database */,
+				D08514612B0F4C9C003D182F /* Networking */,
 				D08514322B0EB07D003D182F /* Extensions */,
 				D08514212B0EADE4003D182F /* Domain */,
 				D08514122B0EAA6C003D182F /* Navigations */,
@@ -172,6 +190,8 @@
 				D08514192B0EAAE4003D182F /* ViewModel */,
 				D08514142B0EAA7A003D182F /* ViewController */,
 				D085141F2B0EABD4003D182F /* HomeModule.swift */,
+				D08514692B0F4D44003D182F /* HomeRepository.swift */,
+				D08514702B0F506F003D182F /* HomeDAO.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -242,6 +262,7 @@
 				D08514372B0EB0D2003D182F /* UICollectionView+ReusableCell.swift */,
 				D08514402B0EB19A003D182F /* Xibbed.swift */,
 				D085144D2B0EB43B003D182F /* UIImageView+Extension.swift */,
+				D08514722B0F735C003D182F /* Loadable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -277,6 +298,33 @@
 				D085145F2B0EBE2A003D182F /* IndicatorViewConfiguration.swift */,
 			);
 			path = Indicator;
+			sourceTree = "<group>";
+		};
+		D08514612B0F4C9C003D182F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D08514622B0F4CA6003D182F /* EndPoints */,
+				D08514652B0F4CC7003D182F /* EndpointHelpers.swift */,
+				D08514672B0F4CE1003D182F /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		D08514622B0F4CA6003D182F /* EndPoints */ = {
+			isa = PBXGroup;
+			children = (
+				D08514632B0F4CB3003D182F /* TransferEndPoints.swift */,
+			);
+			path = EndPoints;
+			sourceTree = "<group>";
+		};
+		D085146B2B0F4FF0003D182F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				D085146C2B0F500B003D182F /* UserDefaultsProtocol.swift */,
+				D085146E2B0F5040003D182F /* DatabaseManager.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,15 +436,21 @@
 				D085142C2B0EAE72003D182F /* TransferDestinationViewModel.swift in Sources */,
 				D08514302B0EAF47003D182F /* HeaderCollectionReusableView.swift in Sources */,
 				D085145A2B0EBD72003D182F /* IndicatorCollectionViewCell.swift in Sources */,
+				D085146D2B0F500B003D182F /* UserDefaultsProtocol.swift in Sources */,
+				D08514712B0F506F003D182F /* HomeDAO.swift in Sources */,
 				D085141B2B0EAAF4003D182F /* HomeViewModelProtocol.swift in Sources */,
 				D08514262B0EAE2B003D182F /* MoreInfo.swift in Sources */,
+				D08514732B0F735C003D182F /* Loadable.swift in Sources */,
 				D085144C2B0EB33B003D182F /* AllItemsViewConfiguration.swift in Sources */,
 				D08514242B0EAE14003D182F /* Card.swift in Sources */,
 				D08514382B0EB0D2003D182F /* UICollectionView+ReusableCell.swift in Sources */,
 				D08514412B0EB19A003D182F /* Xibbed.swift in Sources */,
 				D08514342B0EB0A6003D182F /* ClassName.swift in Sources */,
+				D08514642B0F4CB3003D182F /* TransferEndPoints.swift in Sources */,
 				D08514462B0EB258003D182F /* AllCollectionViewCell.swift in Sources */,
+				D08514662B0F4CC7003D182F /* EndpointHelpers.swift in Sources */,
 				D08513E22B0EAA0B003D182F /* AppDelegate.swift in Sources */,
+				D085146A2B0F4D44003D182F /* HomeRepository.swift in Sources */,
 				D085143B2B0EB13F003D182F /* FavoritesCollectionViewCell.swift in Sources */,
 				D08514202B0EABD4003D182F /* HomeModule.swift in Sources */,
 				D08514172B0EAA99003D182F /* HomeViewController.swift in Sources */,
@@ -406,6 +460,8 @@
 				D085144E2B0EB43B003D182F /* UIImageView+Extension.swift in Sources */,
 				D085142A2B0EAE5A003D182F /* TransferDestination.swift in Sources */,
 				D085141D2B0EAB01003D182F /* HomeViewModel.swift in Sources */,
+				D08514682B0F4CE1003D182F /* NetworkManager.swift in Sources */,
+				D085146F2B0F5040003D182F /* DatabaseManager.swift in Sources */,
 				D085145C2B0EBD90003D182F /* IndicatorView.swift in Sources */,
 				D08514362B0EB0BC003D182F /* ReusableCell.swift in Sources */,
 				D08514602B0EBE2A003D182F /* IndicatorViewConfiguration.swift in Sources */,

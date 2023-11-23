@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TransferDestinationViewModel: Hashable {
+struct TransferDestinationViewModel: Hashable, Codable {
     var id: String
     let fullName: String
     let cardNumber: String

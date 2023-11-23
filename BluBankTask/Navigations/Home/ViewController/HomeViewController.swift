@@ -51,7 +51,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        update()
+        bind()
+        viewModel.action(.getTransferList(true))
     }
 
     private func setupCollectionView() {
@@ -62,6 +63,27 @@ class HomeViewController: UIViewController {
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshCollection), for: .valueChanged)
         refreshControl.endRefreshing()
+    }
+
+    private func bind() {
+        viewModel.state
+            .map(\.transferDestinationList)
+            .receive(on: RunLoop.main)
+            .removeDuplicates()
+            .sink { [weak self] loadable in
+                guard let self else { return }
+                switch loadable {
+                case .notRequested:
+                    break
+                case .isLoading:
+                    refreshControl.beginRefreshing()
+                case let .loaded(transferObject):
+                    self.update(transferObject: transferObject)
+                    refreshControl.endRefreshing()
+                case .failed(_):
+                    refreshControl.endRefreshing()
+                }
+            }.store(in: &cancellables)
     }
 
     @objc private func refreshCollection() {
@@ -76,15 +98,30 @@ extension HomeViewController: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let section = dataSource?.sectionIdentifier(for: indexPath.section), section == .all else { return }
+        viewModel.action(.loadMoreIfNeeded(indexPath))
     }
 }
 
 extension HomeViewController {
     //MARK: Make Datasource
-    private func update(animate: Bool = false) {
+    private func update(transferObject: TransferDestinationObject,
+                        animate: Bool = false) {
         Task {
             var snapshot = NSDiffableDataSourceSnapshot<Section, SectionItem>()
-            snapshot.appendSections([Section.all])
+
+            if case let .transferDestinationList(transferList, favoriteList, hasMore) = transferObject {
+                if !favoriteList.isEmpty {
+                    snapshot.appendSections([Section.favorites])
+                    snapshot.appendItems(favoriteList.map({ SectionItem.favorites($0) }), toSection: .favorites)
+                }
+                snapshot.appendSections([Section.all])
+                snapshot.appendItems(transferList.map({ SectionItem.all($0) }), toSection: .all)
+                if hasMore {
+                    snapshot.appendItems([.indicator], toSection: .all)
+                }
+            }
+
             dataSource?.apply(snapshot, animatingDifferences: animate)
         }
     }
@@ -148,6 +185,7 @@ extension HomeViewController {
         )
         collectionView.registerCellTypeForClass(FavoritesCollectionViewCell.self)
         collectionView.registerCellTypeForClass(AllCollectionViewCell.self)
+        collectionView.registerCellTypeForClass(IndicatorCollectionViewCell.self)
     }
 
     private func makeAllSectionCell(on collection: UICollectionView, for indexPath: IndexPath, with config: AllItemsViewConfiguration) -> UICollectionViewCell {

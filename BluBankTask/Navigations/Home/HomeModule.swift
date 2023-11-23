@@ -9,14 +9,16 @@ import Foundation
 
 enum HomeViewModule {
     struct Configuration {
-
-        init() {}
+        fileprivate let repository: HomeRepositoryProtocol
+        init(repository: HomeRepositoryProtocol) {
+            self.repository = repository
+        }
     }
 
     typealias SceneView = HomeViewController
 
     static func build(with configuration: Configuration) -> SceneView {
-        let viewModel: HomeViewModelProtocol = HomeViewModel()
+        let viewModel: HomeViewModelProtocol = HomeViewModel(repository: configuration.repository)
         let viewController = SceneView(viewModel: viewModel)
         return viewController
     }
