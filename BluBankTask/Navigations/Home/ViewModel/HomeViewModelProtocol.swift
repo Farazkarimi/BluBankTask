@@ -13,6 +13,10 @@ protocol HomeViewModelProtocol {
     func action(_ handler: HomeViewModelAction)
 }
 
+enum EventMediaCommentRoute: Equatable {
+    case showDetail(TransferDestinationViewModel)
+}
+
 enum TransferDestinationObject: Hashable {
     case transferDestinationList(_ transferList: [TransferDestinationViewModel],
                                  _ favoriteList: [TransferDestinationViewModel],
@@ -22,6 +26,7 @@ enum TransferDestinationObject: Hashable {
 
 struct HomeViewModelState {
 
+    let route: EventMediaCommentRoute?
     let transferDestinationList: Loadable<TransferDestinationObject>
 
     var dataSource: [TransferDestinationViewModel] {
@@ -33,12 +38,19 @@ struct HomeViewModelState {
         }
     }
 
-    init(transferDestinationList: Loadable<TransferDestinationObject>) {
-        self.transferDestinationList = transferDestinationList
+    var favoriteDataSource: [TransferDestinationViewModel] {
+        if case let .loaded(transfer) = transferDestinationList,
+           case let .transferDestinationList(_, favoriteList, _) = transfer {
+            return favoriteList
+        } else {
+            return []
+        }
     }
 
-    func update(transferDestinationList: Loadable<TransferDestinationObject>? = nil) -> HomeViewModelState {
-        HomeViewModelState(transferDestinationList: transferDestinationList ?? self.transferDestinationList)
+    func update(route: EventMediaCommentRoute? = nil,
+                transferDestinationList: Loadable<TransferDestinationObject>? = nil) -> HomeViewModelState {
+        HomeViewModelState(route: route,
+                           transferDestinationList: transferDestinationList ?? self.transferDestinationList)
     }
 }
 
@@ -46,4 +58,5 @@ enum HomeViewModelAction {
     case getTransferList(_ refresh: Bool = false)
     case toggleFavorite(_ for: TransferDestinationViewModel)
     case loadMoreIfNeeded(IndexPath)
+    case showDetail(IndexPath, HomeViewController.Section)
 }

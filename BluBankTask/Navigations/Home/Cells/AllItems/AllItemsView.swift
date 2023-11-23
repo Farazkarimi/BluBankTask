@@ -10,7 +10,7 @@ import Combine
 
 final class AllItemsView: UIView, UIContentView, Xibbed {
 
-    enum Constant {
+    private enum Constant {
         static let starImageName = "star"
         static let starFilledImageName = "star.fill"
     }

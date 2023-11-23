@@ -18,8 +18,10 @@ enum HomeViewModule {
     typealias SceneView = HomeViewController
 
     static func build(with configuration: Configuration) -> SceneView {
+        var router: HomeRouting = HomeRouter(configuration: configuration)
         let viewModel: HomeViewModelProtocol = HomeViewModel(repository: configuration.repository)
-        let viewController = SceneView(viewModel: viewModel)
+        let viewController = SceneView(viewModel: viewModel, router: router)
+        router.viewController = viewController
         return viewController
     }
 }

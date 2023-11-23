@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         static let zeroItemSize = NSCollectionLayoutSection(group: .init(layoutSize: .init(widthDimension: .absolute(0), heightDimension: .absolute(0))))
     }
 
-    private enum Section: Int, Hashable, CaseIterable {
+    enum Section: Int, Hashable, CaseIterable {
         case favorites
         case all
     }
@@ -37,10 +37,13 @@ class HomeViewController: UIViewController {
 
     private var dataSource: UICollectionViewDiffableDataSource<Section, SectionItem>?
     private var viewModel: HomeViewModelProtocol
+    private let router: HomeRouting
     private var cancellables: Set<AnyCancellable> =  .init()
 
-    init(viewModel: HomeViewModelProtocol) {
+    init(viewModel: HomeViewModelProtocol,
+         router: HomeRouting) {
         self.viewModel = viewModel
+        self.router = router
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -84,6 +87,19 @@ class HomeViewController: UIViewController {
                     refreshControl.endRefreshing()
                 }
             }.store(in: &cancellables)
+
+        viewModel.state
+            .map(\.route)
+            .receive(on: RunLoop.main)
+            .compactMap({$0})
+            .debounce(for: .milliseconds(Constant.debounceTime), scheduler: RunLoop.main)
+            .sink { [weak self] route in
+                guard let self else { return }
+                switch route {
+                case let .showDetail(transferDestination):
+                    self.router.showDetail(transferDestiation: transferDestination)
+                }
+            }.store(in: &cancellables)
     }
 
     @objc private func refreshCollection() {
@@ -94,7 +110,18 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDelegate {
     //MARK: CollectionView Delegates
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(">>>> Selected")
+        if self.dataSource?.numberOfSections(in: self.collectionView) == Section.allCases.count {
+            switch indexPath.section {
+            case Section.favorites.rawValue:
+                viewModel.action(.showDetail(indexPath, .favorites))
+            case Section.all.rawValue:
+                viewModel.action(.showDetail(indexPath, .all))
+            default:
+                break
+            }
+        } else {
+            viewModel.action(.showDetail(indexPath, .all))
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

@@ -48,6 +48,14 @@
 		D085146F2B0F5040003D182F /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085146E2B0F5040003D182F /* DatabaseManager.swift */; };
 		D08514712B0F506F003D182F /* HomeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514702B0F506F003D182F /* HomeDAO.swift */; };
 		D08514732B0F735C003D182F /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514722B0F735C003D182F /* Loadable.swift */; };
+		D08514782B0F8A22003D182F /* DetailModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514772B0F8A22003D182F /* DetailModule.swift */; };
+		D085147A2B0F8A46003D182F /* DetailDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514792B0F8A46003D182F /* DetailDAO.swift */; };
+		D085147D2B0F8A5D003D182F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085147B2B0F8A5D003D182F /* DetailViewController.swift */; };
+		D085147E2B0F8A5D003D182F /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D085147C2B0F8A5D003D182F /* DetailViewController.xib */; };
+		D08514802B0F8AA4003D182F /* DetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085147F2B0F8AA4003D182F /* DetailViewModelProtocol.swift */; };
+		D08514822B0F8ABA003D182F /* DetaiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514812B0F8ABA003D182F /* DetaiViewModel.swift */; };
+		D08514842B0F904B003D182F /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514832B0F904B003D182F /* HomeRouter.swift */; };
+		D08514872B0F9086003D182F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514862B0F9086003D182F /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +113,14 @@
 		D085146E2B0F5040003D182F /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		D08514702B0F506F003D182F /* HomeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDAO.swift; sourceTree = "<group>"; };
 		D08514722B0F735C003D182F /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		D08514772B0F8A22003D182F /* DetailModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModule.swift; sourceTree = "<group>"; };
+		D08514792B0F8A46003D182F /* DetailDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDAO.swift; sourceTree = "<group>"; };
+		D085147B2B0F8A5D003D182F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D085147C2B0F8A5D003D182F /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		D085147F2B0F8AA4003D182F /* DetailViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelProtocol.swift; sourceTree = "<group>"; };
+		D08514812B0F8ABA003D182F /* DetaiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaiViewModel.swift; sourceTree = "<group>"; };
+		D08514832B0F904B003D182F /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		D08514862B0F9086003D182F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +194,8 @@
 		D08514122B0EAA6C003D182F /* Navigations */ = {
 			isa = PBXGroup;
 			children = (
+				D08514852B0F9075003D182F /* Protocols */,
+				D08514742B0F867C003D182F /* Detail */,
 				D08514132B0EAA71003D182F /* Home */,
 			);
 			path = Navigations;
@@ -192,6 +210,7 @@
 				D085141F2B0EABD4003D182F /* HomeModule.swift */,
 				D08514692B0F4D44003D182F /* HomeRepository.swift */,
 				D08514702B0F506F003D182F /* HomeDAO.swift */,
+				D08514832B0F904B003D182F /* HomeRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -327,6 +346,43 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		D08514742B0F867C003D182F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D08514762B0F8978003D182F /* ViewModel */,
+				D08514752B0F896F003D182F /* ViewController */,
+				D08514772B0F8A22003D182F /* DetailModule.swift */,
+				D08514792B0F8A46003D182F /* DetailDAO.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		D08514752B0F896F003D182F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D085147B2B0F8A5D003D182F /* DetailViewController.swift */,
+				D085147C2B0F8A5D003D182F /* DetailViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D08514762B0F8978003D182F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D085147F2B0F8AA4003D182F /* DetailViewModelProtocol.swift */,
+				D08514812B0F8ABA003D182F /* DetaiViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D08514852B0F9075003D182F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D08514862B0F9086003D182F /* Router.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -411,6 +467,7 @@
 				D08514312B0EAF47003D182F /* HeaderCollectionReusableView.xib in Resources */,
 				D085145E2B0EBD9F003D182F /* IndicatorView.xib in Resources */,
 				D08513EE2B0EAA0E003D182F /* LaunchScreen.storyboard in Resources */,
+				D085147E2B0F8A5D003D182F /* DetailViewController.xib in Resources */,
 				D085143F2B0EB188003D182F /* FavoritesView.xib in Resources */,
 				D08513EB2B0EAA0E003D182F /* Assets.xcassets in Resources */,
 				D08514182B0EAA99003D182F /* HomeViewController.xib in Resources */,
@@ -436,10 +493,13 @@
 				D085142C2B0EAE72003D182F /* TransferDestinationViewModel.swift in Sources */,
 				D08514302B0EAF47003D182F /* HeaderCollectionReusableView.swift in Sources */,
 				D085145A2B0EBD72003D182F /* IndicatorCollectionViewCell.swift in Sources */,
+				D08514782B0F8A22003D182F /* DetailModule.swift in Sources */,
 				D085146D2B0F500B003D182F /* UserDefaultsProtocol.swift in Sources */,
 				D08514712B0F506F003D182F /* HomeDAO.swift in Sources */,
 				D085141B2B0EAAF4003D182F /* HomeViewModelProtocol.swift in Sources */,
+				D08514802B0F8AA4003D182F /* DetailViewModelProtocol.swift in Sources */,
 				D08514262B0EAE2B003D182F /* MoreInfo.swift in Sources */,
+				D08514822B0F8ABA003D182F /* DetaiViewModel.swift in Sources */,
 				D08514732B0F735C003D182F /* Loadable.swift in Sources */,
 				D085144C2B0EB33B003D182F /* AllItemsViewConfiguration.swift in Sources */,
 				D08514242B0EAE14003D182F /* Card.swift in Sources */,
@@ -448,6 +508,7 @@
 				D08514342B0EB0A6003D182F /* ClassName.swift in Sources */,
 				D08514642B0F4CB3003D182F /* TransferEndPoints.swift in Sources */,
 				D08514462B0EB258003D182F /* AllCollectionViewCell.swift in Sources */,
+				D08514842B0F904B003D182F /* HomeRouter.swift in Sources */,
 				D08514662B0F4CC7003D182F /* EndpointHelpers.swift in Sources */,
 				D08513E22B0EAA0B003D182F /* AppDelegate.swift in Sources */,
 				D085146A2B0F4D44003D182F /* HomeRepository.swift in Sources */,
@@ -458,13 +519,16 @@
 				D08514482B0EB282003D182F /* AllItemsView.swift in Sources */,
 				D085143D2B0EB16E003D182F /* FavoritesView.swift in Sources */,
 				D085144E2B0EB43B003D182F /* UIImageView+Extension.swift in Sources */,
+				D085147D2B0F8A5D003D182F /* DetailViewController.swift in Sources */,
 				D085142A2B0EAE5A003D182F /* TransferDestination.swift in Sources */,
+				D08514872B0F9086003D182F /* Router.swift in Sources */,
 				D085141D2B0EAB01003D182F /* HomeViewModel.swift in Sources */,
 				D08514682B0F4CE1003D182F /* NetworkManager.swift in Sources */,
 				D085146F2B0F5040003D182F /* DatabaseManager.swift in Sources */,
 				D085145C2B0EBD90003D182F /* IndicatorView.swift in Sources */,
 				D08514362B0EB0BC003D182F /* ReusableCell.swift in Sources */,
 				D08514602B0EBE2A003D182F /* IndicatorViewConfiguration.swift in Sources */,
+				D085147A2B0F8A46003D182F /* DetailDAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

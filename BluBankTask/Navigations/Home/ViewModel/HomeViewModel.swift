@@ -24,7 +24,7 @@ final class HomeViewModel: HomeViewModelProtocol {
 
     init(repository: HomeRepositoryProtocol) {
         self.repository = repository
-        state = .init(.init(transferDestinationList: .notRequested))
+        state = .init(.init(route: nil, transferDestinationList: .notRequested))
     }
 
     func action(_ handler: HomeViewModelAction) {
@@ -35,12 +35,15 @@ final class HomeViewModel: HomeViewModelProtocol {
             toggleFavorite(transferDestination: transferDestination)
         case let .loadMoreIfNeeded(indexPath):
             loadMoreIfNeeded(indexPath: indexPath)
+        case let .showDetail(indexPath, section):
+            showDetail(at: indexPath, section: section)
         }
     }
 
-    private func update(transferDestinationList: Loadable<TransferDestinationObject>? = nil,
-                        transferDestinationFavoriteList: Loadable<TransferDestinationObject>? = nil) {
-        state.value = state.value.update(transferDestinationList: transferDestinationList)
+    private func update(route: EventMediaCommentRoute? = nil,
+                        transferDestinationList: Loadable<TransferDestinationObject>? = nil) {
+        state.value = state.value.update(route: route,
+                                         transferDestinationList: transferDestinationList)
     }
 
     private func getTransferList(refresh: Bool) {
@@ -96,5 +99,16 @@ final class HomeViewModel: HomeViewModelProtocol {
         self.update(transferDestinationList: .loaded(.transferDestinationList(datasource,
                                                                               favoriteList,
                                                                               hasMore: page != numberOfPages)))
+    }
+
+    private func showDetail(at indexPath: IndexPath, section: HomeViewController.Section) {
+        let model: TransferDestinationViewModel
+        switch section {
+        case .favorites:
+            model = state.value.favoriteDataSource[indexPath.row]
+        case .all:
+            model = state.value.dataSource[indexPath.row]
+        }
+        update(route: .showDetail(model))
     }
 }
