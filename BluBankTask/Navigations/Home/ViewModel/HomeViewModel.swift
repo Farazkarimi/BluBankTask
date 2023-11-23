@@ -31,8 +31,8 @@ final class HomeViewModel: HomeViewModelProtocol {
         switch handler {
         case let .getTransferList(refresh):
             getTransferList(refresh: refresh)
-        case let .toggleFavorite(tansferDestination):
-            break
+        case let .toggleFavorite(transferDestination):
+            toggleFavorite(transferDestination: transferDestination)
         case let .loadMoreIfNeeded(indexPath):
             loadMoreIfNeeded(indexPath: indexPath)
         }
@@ -84,5 +84,17 @@ final class HomeViewModel: HomeViewModelProtocol {
     private func loadMoreIfNeeded(indexPath: IndexPath) {
         guard indexPath.item + 1 == state.value.dataSource.count  else { return }
         getTransferList(refresh: false)
+    }
+
+    private func toggleFavorite(transferDestination: TransferDestinationViewModel) {
+        var datasource = state.value.dataSource
+        let isFavorite = repository.toggleFavorite(transferDestination: transferDestination)
+        if let index = datasource.firstIndex(where: {$0.id == transferDestination.id}) {
+            datasource[index].isFavorite = isFavorite
+        }
+        let favoriteList = repository.getFavoriteList()
+        self.update(transferDestinationList: .loaded(.transferDestinationList(datasource,
+                                                                              favoriteList,
+                                                                              hasMore: page != numberOfPages)))
     }
 }

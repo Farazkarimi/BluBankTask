@@ -196,6 +196,8 @@ extension HomeViewController {
                       scheduler: RunLoop.main)
             .sink { [weak self] _ in
                 guard let self else { return }
+                let model = self.viewModel.state.value.dataSource[indexPath.row]
+                self.viewModel.action(.toggleFavorite(model))
             }.store(in: &cancellables)
         return cell
     }

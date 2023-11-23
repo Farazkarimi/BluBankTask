@@ -10,6 +10,7 @@ import Foundation
 protocol HomeRepositoryProtocol {
     func getTransferList(page: Int) async throws ->[TransferDestinationViewModel]
     func getFavoriteList() -> [TransferDestinationViewModel]
+    func toggleFavorite(transferDestination: TransferDestinationViewModel) -> Bool
 }
 
 final class HomeRepository: HomeRepositoryProtocol {
@@ -34,5 +35,9 @@ final class HomeRepository: HomeRepositoryProtocol {
 
     func getFavoriteList() -> [TransferDestinationViewModel] {
         return homeDAO.getFavoriteList()
+    }
+
+    func toggleFavorite(transferDestination: TransferDestinationViewModel) -> Bool {
+        return homeDAO.toggleFavorite(transferDestination: transferDestination)
     }
 }

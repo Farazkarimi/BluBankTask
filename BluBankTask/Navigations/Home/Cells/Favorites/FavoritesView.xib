@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -35,7 +34,7 @@
                                     </constraints>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="BackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="IqD-0f-AC9" firstAttribute="centerX" secondItem="vy1-nM-quX" secondAttribute="centerX" id="EMf-kM-l7d"/>
                                 <constraint firstItem="IqD-0f-AC9" firstAttribute="centerY" secondItem="vy1-nM-quX" secondAttribute="centerY" id="Phn-r5-tii"/>
@@ -46,12 +45,14 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dA7-ZD-HvW">
                                     <rect key="frame" x="0.0" y="0.0" width="147" height="11"/>
+                                    <color key="backgroundColor" name="BackgroundColor"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pr-IP-vmt">
                                     <rect key="frame" x="0.0" y="15" width="147" height="11"/>
+                                    <color key="backgroundColor" name="BackgroundColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -61,7 +62,7 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="BackgroundColor"/>
             <constraints>
                 <constraint firstItem="uus-oa-3Js" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GF1-Qs-Eqx"/>
                 <constraint firstItem="uus-oa-3Js" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Jbs-Nq-he7"/>
@@ -73,11 +74,11 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="BackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ImageBackgroundColor">
             <color red="0.84313725490196079" green="0.84313725490196079" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

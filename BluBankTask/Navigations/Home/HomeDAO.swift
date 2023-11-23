@@ -8,6 +8,7 @@
 protocol HomeDAOProtocol {
     func isFavorite(key: String) -> Bool
     func getFavoriteList() -> [TransferDestinationViewModel]
+    func toggleFavorite(transferDestination: TransferDestinationViewModel) -> Bool
 }
 
 final class HomeDAO: HomeDAOProtocol {
@@ -25,5 +26,17 @@ final class HomeDAO: HomeDAOProtocol {
 
     func getFavoriteList() -> [TransferDestinationViewModel] {
         return databaseManager.loadAll(type: TransferDestinationViewModel.self)
+    }
+
+    func toggleFavorite(transferDestination: TransferDestinationViewModel) -> Bool {
+        if isFavorite(key: transferDestination.id) {
+            databaseManager.remove(forKey: transferDestination.id)
+            return false
+        } else {
+            var object = transferDestination
+            object.isFavorite = true
+            databaseManager.save(object: object, forKey: transferDestination.id)
+            return true
+        }
     }
 }
