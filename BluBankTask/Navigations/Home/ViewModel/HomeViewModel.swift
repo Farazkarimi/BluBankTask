@@ -14,8 +14,13 @@ final class HomeViewModel: HomeViewModelProtocol {
 
     private var repository: HomeRepositoryProtocol
     private var cancellables: Set<AnyCancellable> =  .init()
+    private var fetchTask: Task<(), Never>?
     private var page: Int = 0
     private var numberOfPages = 5
+
+    enum FetchError: Error {
+        case cancelled
+    }
 
     init(repository: HomeRepositoryProtocol) {
         self.repository = repository
@@ -42,7 +47,8 @@ final class HomeViewModel: HomeViewModelProtocol {
         guard (page != numberOfPages || refresh) else { return }
         let datasource = state.value.dataSource
         self.update(transferDestinationList: .isLoading())
-        Task { [weak self, datasource] in
+        fetchTask?.cancel()
+        fetchTask = Task { [weak self, datasource] in
             guard let self else { return }
             do {
                 if refresh {
@@ -51,8 +57,15 @@ final class HomeViewModel: HomeViewModelProtocol {
                     self.page = self.page + 1
                 }
                 let allTransferList: [TransferDestinationViewModel]
-
+                guard let fetchTask, !fetchTask.isCancelled else {
+                    self.update(transferDestinationList: .failed(FetchError.cancelled))
+                    return
+                }
                 let transferList = try await repository.getTransferList(page: page)
+                guard !fetchTask.isCancelled else {
+                    self.update(transferDestinationList: .failed(FetchError.cancelled))
+                    return
+                }
                 if refresh {
                     allTransferList = transferList
                 } else {

@@ -87,7 +87,7 @@ class HomeViewController: UIViewController {
     }
 
     @objc private func refreshCollection() {
-
+        viewModel.action(.getTransferList(true))
     }
 }
 
