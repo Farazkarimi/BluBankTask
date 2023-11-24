@@ -6,15 +6,27 @@
 //
 
 import Foundation
+import Combine
 
 protocol DatabaseManagerProtocol {
     func save<T: Codable>(object: T, forKey key: String)
     func load<T: Codable>(forKey key: String) -> T?
     func loadAll<T: Codable>(type: T.Type) -> [T]
-    func remove(forKey key: String)
+    func remove<T: Codable>(forKey key: String, Type: T.Type)
+    var changePublisher: AnyPublisher<(T: Codable, ObjectChangeState), Never> { get }
 }
 
-struct Database: DatabaseManagerProtocol {
+enum ObjectChangeState {
+    case added
+    case removed
+}
+
+final class Database: DatabaseManagerProtocol {
+    var changePublisher: AnyPublisher<(T: Codable, ObjectChangeState), Never> {
+        changePublisherSubject.eraseToAnyPublisher()
+    }
+
+    private let changePublisherSubject: PassthroughSubject<(T: Codable, ObjectChangeState), Never> = .init()
     private let userDefaults: UserDefaultsProtocol
     private let keyPrefix: String
 
@@ -27,9 +39,18 @@ struct Database: DatabaseManagerProtocol {
         do {
             let data = try JSONEncoder().encode(object)
             userDefaults.set(data, forKey: keyPrefix + key)
+            changePublisherSubject.send((object, .added))
         } catch {
             print("Error saving object: \(error)")
         }
+    }
+
+    func remove<T: Codable>(forKey key: String, Type: T.Type) {
+        guard let object: T? = load(forKey: key) else {
+            return
+        }
+        userDefaults.removeObject(forKey: keyPrefix + key)
+        changePublisherSubject.send((object, .removed))
     }
 
     func load<T: Codable>(forKey key: String) -> T? {
@@ -63,82 +84,5 @@ struct Database: DatabaseManagerProtocol {
         }
 
         return objects
-    }
-
-    func remove(forKey key: String) {
-        userDefaults.removeObject(forKey: keyPrefix + key)
-    }
-}
-
-import CoreData
-
-class DatabaseManager {
-
-    let coreDataStack: CoreDataStack
-
-    init(coreDataStack: CoreDataStack) {
-        self.coreDataStack = coreDataStack
-    }
-
-    func save<T: NSManagedObject>(_ instance: T) {
-        let context = coreDataStack.viewContext
-        context.insert(instance)
-        coreDataStack.saveContext()
-    }
-
-    func load<T: NSManagedObject>(withID id: NSManagedObjectID) -> T? {
-        let context = coreDataStack.viewContext
-        do {
-            return try context.existingObject(with: id) as? T
-        } catch {
-            print("Error loading object of type \(T.self): \(error.localizedDescription)")
-            return nil
-        }
-    }
-
-    func loadAll<T: NSManagedObject>(T: T.Type) -> [T] {
-        let context = coreDataStack.viewContext
-        let fetchRequest: NSFetchRequest<T> = T.fetchRequest() as! NSFetchRequest<T>
-
-        do {
-            return try context.fetch(fetchRequest)
-        } catch {
-            print("Error loading all objects of type \(T.self): \(error.localizedDescription)")
-            return []
-        }
-    }
-
-    func remove<T: NSManagedObject>(_ instance: T) {
-        let context = coreDataStack.viewContext
-        context.delete(instance)
-        coreDataStack.saveContext()
-    }
-}
-
-class CoreDataStack {
-
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "YourProjectName")
-        container.loadPersistentStores { _, error in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        }
-        return container
-    }()
-
-    var viewContext: NSManagedObjectContext {
-        return persistentContainer.viewContext
-    }
-
-    func saveContext() {
-        if viewContext.hasChanges {
-            do {
-                try viewContext.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
     }
 }

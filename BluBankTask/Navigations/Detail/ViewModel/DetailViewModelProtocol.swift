@@ -24,4 +24,5 @@ struct DetailViewModelState {
 
 enum DetailViewModelAction {
     case fetchTransferModel
+    case toggleFavorite
 }

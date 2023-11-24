@@ -10,7 +10,7 @@ import Combine
 
 final class DetailViewController: UIViewController {
 
-    enum Constant {
+    private enum Constant {
         static let starImageName = "star"
         static let starFilledImageName = "star.fill"
     }
@@ -61,6 +61,6 @@ final class DetailViewController: UIViewController {
     }
 
     @IBAction private func favoriteButtonAction(_ sender: UIButton) {
-
+        viewModel.action(.toggleFavorite)
     }
 }

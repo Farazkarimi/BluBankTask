@@ -9,7 +9,8 @@ import Foundation
 
 enum HomeViewModule {
     struct Configuration {
-        fileprivate let repository: HomeRepositoryProtocol
+        
+        let repository: HomeRepositoryProtocol
         init(repository: HomeRepositoryProtocol) {
             self.repository = repository
         }

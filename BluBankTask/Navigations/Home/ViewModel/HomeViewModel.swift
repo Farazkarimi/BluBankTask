@@ -25,6 +25,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     init(repository: HomeRepositoryProtocol) {
         self.repository = repository
         state = .init(.init(route: nil, transferDestinationList: .notRequested))
+        bind()
     }
 
     func action(_ handler: HomeViewModelAction) {
@@ -44,6 +45,25 @@ final class HomeViewModel: HomeViewModelProtocol {
                         transferDestinationList: Loadable<TransferDestinationObject>? = nil) {
         state.value = state.value.update(route: route,
                                          transferDestinationList: transferDestinationList)
+    }
+
+    private func bind() {
+        repository
+            .changePublisher
+            .compactMap({ (T: Codable, ObjectChangeState) in
+                return (T as? TransferDestinationViewModel, ObjectChangeState)
+            })
+            .sink { [weak self] (transferModel, changeState) in
+                guard let self, let transferModel else { return }
+                let isFavorite: Bool
+                switch changeState {
+                case .added:
+                    isFavorite = true
+                case .removed:
+                    isFavorite = false
+                }
+                self.updateDatasource(transferDestination: transferModel, isFavorite: isFavorite)
+            }.store(in: &cancellables)
     }
 
     private func getTransferList(refresh: Bool) {
@@ -90,8 +110,11 @@ final class HomeViewModel: HomeViewModelProtocol {
     }
 
     private func toggleFavorite(transferDestination: TransferDestinationViewModel) {
+        repository.toggleFavorite(transferDestination: transferDestination)
+    }
+
+    private func updateDatasource(transferDestination: TransferDestinationViewModel, isFavorite: Bool) {
         var datasource = state.value.dataSource
-        let isFavorite = repository.toggleFavorite(transferDestination: transferDestination)
         if let index = datasource.firstIndex(where: {$0.id == transferDestination.id}) {
             datasource[index].isFavorite = isFavorite
         }

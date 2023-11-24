@@ -22,7 +22,8 @@ final class HomeRouter: HomeRouting {
     }
 
     func showDetail(transferDestiation: TransferDestinationViewModel) {
-        let vc = DetailModule.build(with: DetailModule.Configuration(transferDestiation: transferDestiation))
+        let vc = DetailModule.build(with: DetailModule.Configuration(transferDestiation: transferDestiation, 
+                                                                     repository: configuration.repository))
         vc.modalPresentationStyle = .pageSheet
         viewController?.present(vc, animated: true)
     }
