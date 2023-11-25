@@ -41,7 +41,7 @@ final class Database: DatabaseManagerProtocol {
             userDefaults.set(data, forKey: keyPrefix + key)
             changePublisherSubject.send((object, .added))
         } catch {
-            print("Error saving object: \(error)")
+            NSLog("Error saving object: \(error)")
         }
     }
 
@@ -62,7 +62,7 @@ final class Database: DatabaseManagerProtocol {
             let object = try JSONDecoder().decode(T.self, from: data)
             return object
         } catch {
-            print("Error loading object: \(error)")
+            NSLog("Error loading object: \(error)")
             return nil
         }
     }
@@ -78,7 +78,7 @@ final class Database: DatabaseManagerProtocol {
                 let object = try JSONDecoder().decode(T.self, from: data)
                 return object
             } catch {
-                print("Error loading object: \(error)")
+                NSLog("Error loading object: \(error)")
                 return nil
             }
         }

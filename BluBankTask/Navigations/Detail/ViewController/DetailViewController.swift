@@ -42,7 +42,7 @@ final class DetailViewController: UIViewController {
 
     func bind() {
         viewModel.state
-            .map(\.transferDestiation)
+            .map(\.transferDestination)
             .removeDuplicates()
             .receive(on: RunLoop.main)
             .sink { [weak self] model in

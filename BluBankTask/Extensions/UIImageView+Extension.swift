@@ -12,11 +12,10 @@ extension UIImageView {
 
     func loadImage(fromURL urlString: String, placeholder: UIImage? = nil, showLoadingIndicator: Bool = true, completion: (() -> Void)? = nil) {
         guard let url = URL(string: urlString) else {
-            print("Invalid URL: \(urlString)")
+            NSLog("Invalid URL: \(urlString)")
             return
         }
 
-        // Show loading indicator if needed
         var loadingIndicator: UIActivityIndicatorView?
         if showLoadingIndicator {
             loadingIndicator = UIActivityIndicatorView(style: .medium)

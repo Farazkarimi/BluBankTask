@@ -10,12 +10,12 @@ import Foundation
 enum DetailModule {
     struct Configuration {
 
-        fileprivate let transferDestiation: TransferDestinationViewModel
+        fileprivate let transferDestination: TransferDestinationViewModel
         fileprivate let repository: HomeRepositoryProtocol
 
-        init(transferDestiation: TransferDestinationViewModel,
+        init(transferDestination: TransferDestinationViewModel,
              repository: HomeRepositoryProtocol) {
-            self.transferDestiation = transferDestiation
+            self.transferDestination = transferDestination
             self.repository = repository
         }
     }
@@ -23,7 +23,7 @@ enum DetailModule {
     typealias SceneView = DetailViewController
 
     static func build(with configuration: Configuration) -> SceneView {
-        let viewModel: DetailViewModelProtocol = DetailViewModel(transferDestiation: configuration.transferDestiation, 
+        let viewModel: DetailViewModelProtocol = DetailViewModel(transferDestination: configuration.transferDestination,
                                                                  repository: configuration.repository)
         let viewController = SceneView(viewModel: viewModel)
         return viewController

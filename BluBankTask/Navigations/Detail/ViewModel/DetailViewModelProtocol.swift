@@ -9,16 +9,16 @@ import Foundation
 import Combine
 
 protocol DetailViewModelProtocol {
-    var state: CurrentValueSubject<DetailViewModelState, Never> { get }
+    var state: AnyPublisher<DetailViewModelState, Never> { get }
     func action(_ handler: DetailViewModelAction)
 }
 
 struct DetailViewModelState {
 
-    let transferDestiation: TransferDestinationViewModel
+    let transferDestination: TransferDestinationViewModel
 
-    func update(transferDestiation: TransferDestinationViewModel?) -> DetailViewModelState {
-        return .init(transferDestiation: transferDestiation ?? self.transferDestiation)
+    func update(transferDestination: TransferDestinationViewModel?) -> DetailViewModelState {
+        return .init(transferDestination: transferDestination ?? self.transferDestination)
     }
 }
 

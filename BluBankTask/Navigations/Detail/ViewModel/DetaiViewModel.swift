@@ -10,34 +10,37 @@ import Foundation
 
 final class DetailViewModel: DetailViewModelProtocol {
 
-    var state: CurrentValueSubject<DetailViewModelState, Never>
+    var state: AnyPublisher<DetailViewModelState, Never> {
+        stateSubject.eraseToAnyPublisher()
+    }
+    var stateSubject: CurrentValueSubject<DetailViewModelState, Never>
 
-    private var transferDestiation: TransferDestinationViewModel
+    private var transferDestination: TransferDestinationViewModel
     private var repository: HomeRepositoryProtocol
     private var cancellables: Set<AnyCancellable> =  .init()
 
-    init(transferDestiation: TransferDestinationViewModel,
+    init(transferDestination: TransferDestinationViewModel,
          repository: HomeRepositoryProtocol) {
-        self.transferDestiation = transferDestiation
+        self.transferDestination = transferDestination
         self.repository = repository
-        state = .init(.init(transferDestiation: transferDestiation))
+        stateSubject = .init(.init(transferDestination: transferDestination))
     }
 
     func action(_ handler: DetailViewModelAction) {
         switch handler {
         case .fetchTransferModel:
-            update(transferDestiation: transferDestiation)
+            update(transferDestination: transferDestination)
         case .toggleFavorite:
             toggleFavorite()
         }
     }
 
-    private func update(transferDestiation: TransferDestinationViewModel? = nil) {
-        state.value = state.value.update(transferDestiation: transferDestiation)
+    private func update(transferDestination: TransferDestinationViewModel? = nil) {
+        stateSubject.value = stateSubject.value.update(transferDestination: transferDestination)
     }
 
     private func toggleFavorite() {
-        transferDestiation.isFavorite = repository.toggleFavorite(transferDestination: transferDestiation)
-        update(transferDestiation: transferDestiation)
+        transferDestination.isFavorite = repository.toggleFavorite(transferDestination: transferDestination)
+        update(transferDestination: transferDestination)
     }
 }

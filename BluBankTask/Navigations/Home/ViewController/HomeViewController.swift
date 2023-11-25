@@ -76,14 +76,14 @@ class HomeViewController: UIViewController {
             .sink { [weak self] loadable in
                 guard let self else { return }
                 switch loadable {
-                case .notRequested:
+                case .initial:
                     break
-                case .isLoading:
+                case .loading:
                     refreshControl.beginRefreshing()
                 case let .loaded(transferObject):
                     self.update(transferObject: transferObject)
                     refreshControl.endRefreshing()
-                case .failed(_):
+                case .error(_):
                     refreshControl.endRefreshing()
                 }
             }.store(in: &cancellables)
@@ -97,7 +97,7 @@ class HomeViewController: UIViewController {
                 guard let self else { return }
                 switch route {
                 case let .showDetail(transferDestination):
-                    self.router.showDetail(transferDestiation: transferDestination)
+                    self.router.showDetail(transferDestination: transferDestination)
                 }
             }.store(in: &cancellables)
     }
@@ -223,8 +223,7 @@ extension HomeViewController {
                       scheduler: RunLoop.main)
             .sink { [weak self] _ in
                 guard let self else { return }
-                let model = self.viewModel.state.value.dataSource[indexPath.row]
-                self.viewModel.action(.toggleFavorite(model))
+                self.viewModel.action(.toggleFavorite(indexPath))
             }.store(in: &cancellables)
         return cell
     }

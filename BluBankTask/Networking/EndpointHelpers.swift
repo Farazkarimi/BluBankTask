@@ -46,7 +46,7 @@ extension EndpointProtocol {
                     let data = try JSONSerialization.data(withJSONObject: queryParams)
                     request.httpBody = data
                 } catch {
-                    print(error.localizedDescription)
+                    NSLog(error.localizedDescription)
                 }
             }
         }

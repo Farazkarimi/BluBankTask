@@ -10,8 +10,10 @@ import Foundation
 
 final class HomeViewModel: HomeViewModelProtocol {
 
-    var state: CurrentValueSubject<HomeViewModelState, Never>
-
+    private var stateSubject : CurrentValueSubject<HomeViewModelState, Never>
+    var state: AnyPublisher<HomeViewModelState, Never> {
+        return stateSubject.eraseToAnyPublisher()
+    }
     private var repository: HomeRepositoryProtocol
     private var cancellables: Set<AnyCancellable> =  .init()
     private var fetchTask: Task<(), Never>?
@@ -24,7 +26,7 @@ final class HomeViewModel: HomeViewModelProtocol {
 
     init(repository: HomeRepositoryProtocol) {
         self.repository = repository
-        state = .init(.init(route: nil, transferDestinationList: .notRequested))
+        stateSubject = .init(.init(route: nil, transferDestinationList: .initial))
         bind()
     }
 
@@ -32,8 +34,8 @@ final class HomeViewModel: HomeViewModelProtocol {
         switch handler {
         case let .getTransferList(refresh):
             getTransferList(refresh: refresh)
-        case let .toggleFavorite(transferDestination):
-            toggleFavorite(transferDestination: transferDestination)
+        case let .toggleFavorite(indexPath):
+            toggleFavorite(indexPath: indexPath)
         case let .loadMoreIfNeeded(indexPath):
             loadMoreIfNeeded(indexPath: indexPath)
         case let .showDetail(indexPath, section):
@@ -43,7 +45,7 @@ final class HomeViewModel: HomeViewModelProtocol {
 
     private func update(route: EventMediaCommentRoute? = nil,
                         transferDestinationList: Loadable<TransferDestinationObject>? = nil) {
-        state.value = state.value.update(route: route,
+        stateSubject.value = stateSubject.value.update(route: route,
                                          transferDestinationList: transferDestinationList)
     }
 
@@ -68,8 +70,8 @@ final class HomeViewModel: HomeViewModelProtocol {
 
     private func getTransferList(refresh: Bool) {
         guard (page != numberOfPages || refresh) else { return }
-        let datasource = state.value.dataSource
-        self.update(transferDestinationList: .isLoading())
+        let datasource = stateSubject.value.dataSource
+        self.update(transferDestinationList: .loading)
         fetchTask?.cancel()
         fetchTask = Task { [weak self, datasource] in
             guard let self else { return }
@@ -81,12 +83,12 @@ final class HomeViewModel: HomeViewModelProtocol {
                 }
                 let allTransferList: [TransferDestinationViewModel]
                 guard let fetchTask, !fetchTask.isCancelled else {
-                    self.update(transferDestinationList: .failed(FetchError.cancelled))
+                    self.update(transferDestinationList: .error(FetchError.cancelled))
                     return
                 }
                 let transferList = try await repository.getTransferList(page: page)
                 guard !fetchTask.isCancelled else {
-                    self.update(transferDestinationList: .failed(FetchError.cancelled))
+                    self.update(transferDestinationList: .error(FetchError.cancelled))
                     return
                 }
                 if refresh {
@@ -99,22 +101,23 @@ final class HomeViewModel: HomeViewModelProtocol {
                                                                                       favoriteList,
                                                                                       hasMore: page != numberOfPages)))
             } catch {
-                self.update(transferDestinationList: .failed(error))
+                self.update(transferDestinationList: .error(error))
             }
         }
     }
 
     private func loadMoreIfNeeded(indexPath: IndexPath) {
-        guard indexPath.item + 1 == state.value.dataSource.count  else { return }
+        guard indexPath.item + 1 == stateSubject.value.dataSource.count  else { return }
         getTransferList(refresh: false)
     }
 
-    private func toggleFavorite(transferDestination: TransferDestinationViewModel) {
-        repository.toggleFavorite(transferDestination: transferDestination)
+    private func toggleFavorite(indexPath: IndexPath) {
+        let model = stateSubject.value.dataSource[indexPath.row]
+        repository.toggleFavorite(transferDestination: model)
     }
 
     private func updateDatasource(transferDestination: TransferDestinationViewModel, isFavorite: Bool) {
-        var datasource = state.value.dataSource
+        var datasource = stateSubject.value.dataSource
         if let index = datasource.firstIndex(where: {$0.id == transferDestination.id}) {
             datasource[index].isFavorite = isFavorite
         }
@@ -128,9 +131,9 @@ final class HomeViewModel: HomeViewModelProtocol {
         let model: TransferDestinationViewModel
         switch section {
         case .favorites:
-            model = state.value.favoriteDataSource[indexPath.row]
+            model = stateSubject.value.favoriteDataSource[indexPath.row]
         case .all:
-            model = state.value.dataSource[indexPath.row]
+            model = stateSubject.value.dataSource[indexPath.row]
         }
         update(route: .showDetail(model))
     }

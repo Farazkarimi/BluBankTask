@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol HomeViewModelProtocol {
-    var state: CurrentValueSubject<HomeViewModelState, Never> { get }
+    var state: AnyPublisher<HomeViewModelState, Never> { get }
     func action(_ handler: HomeViewModelAction)
 }
 
@@ -56,7 +56,7 @@ struct HomeViewModelState {
 
 enum HomeViewModelAction {
     case getTransferList(_ refresh: Bool = false)
-    case toggleFavorite(_ for: TransferDestinationViewModel)
+    case toggleFavorite(IndexPath)
     case loadMoreIfNeeded(IndexPath)
     case showDetail(IndexPath, HomeViewController.Section)
 }

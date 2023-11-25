@@ -49,13 +49,19 @@
 		D08514712B0F506F003D182F /* HomeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514702B0F506F003D182F /* HomeDAO.swift */; };
 		D08514732B0F735C003D182F /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514722B0F735C003D182F /* Loadable.swift */; };
 		D08514782B0F8A22003D182F /* DetailModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514772B0F8A22003D182F /* DetailModule.swift */; };
-		D085147A2B0F8A46003D182F /* DetailDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514792B0F8A46003D182F /* DetailDAO.swift */; };
 		D085147D2B0F8A5D003D182F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085147B2B0F8A5D003D182F /* DetailViewController.swift */; };
 		D085147E2B0F8A5D003D182F /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D085147C2B0F8A5D003D182F /* DetailViewController.xib */; };
 		D08514802B0F8AA4003D182F /* DetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085147F2B0F8AA4003D182F /* DetailViewModelProtocol.swift */; };
 		D08514822B0F8ABA003D182F /* DetaiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514812B0F8ABA003D182F /* DetaiViewModel.swift */; };
 		D08514842B0F904B003D182F /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514832B0F904B003D182F /* HomeRouter.swift */; };
 		D08514872B0F9086003D182F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514862B0F9086003D182F /* Router.swift */; };
+		D085148D2B12A71D003D182F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085148C2B12A71D003D182F /* Environment.swift */; };
+		D08514902B12A9F1003D182F /* MockHomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085148F2B12A9F1003D182F /* MockHomeRepository.swift */; };
+		D08514912B12AA1E003D182F /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514692B0F4D44003D182F /* HomeRepository.swift */; };
+		D08514922B12AA29003D182F /* TransferDestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085142B2B0EAE72003D182F /* TransferDestinationViewModel.swift */; };
+		D08514932B12AA40003D182F /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085146E2B0F5040003D182F /* DatabaseManager.swift */; };
+		D08514942B12AB76003D182F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085141C2B0EAB01003D182F /* HomeViewModel.swift */; };
+		D08514962B12ABE3003D182F /* TransferDestinationViewModel+Stubbing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514952B12ABE3003D182F /* TransferDestinationViewModel+Stubbing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,13 +120,15 @@
 		D08514702B0F506F003D182F /* HomeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDAO.swift; sourceTree = "<group>"; };
 		D08514722B0F735C003D182F /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		D08514772B0F8A22003D182F /* DetailModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModule.swift; sourceTree = "<group>"; };
-		D08514792B0F8A46003D182F /* DetailDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDAO.swift; sourceTree = "<group>"; };
 		D085147B2B0F8A5D003D182F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D085147C2B0F8A5D003D182F /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		D085147F2B0F8AA4003D182F /* DetailViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelProtocol.swift; sourceTree = "<group>"; };
 		D08514812B0F8ABA003D182F /* DetaiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaiViewModel.swift; sourceTree = "<group>"; };
 		D08514832B0F904B003D182F /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		D08514862B0F9086003D182F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		D085148C2B12A71D003D182F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		D085148F2B12A9F1003D182F /* MockHomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeRepository.swift; sourceTree = "<group>"; };
+		D08514952B12ABE3003D182F /* TransferDestinationViewModel+Stubbing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransferDestinationViewModel+Stubbing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +170,7 @@
 		D08513E02B0EAA0B003D182F /* BluBankTask */ = {
 			isa = PBXGroup;
 			children = (
+				D085148B2B12A701003D182F /* Util */,
 				D085146B2B0F4FF0003D182F /* Database */,
 				D08514612B0F4C9C003D182F /* Networking */,
 				D08514322B0EB07D003D182F /* Extensions */,
@@ -176,6 +185,7 @@
 		D08513F72B0EAA0E003D182F /* BluBankTaskTests */ = {
 			isa = PBXGroup;
 			children = (
+				D085148E2B12A9E2003D182F /* Mocks */,
 				D08513F82B0EAA0E003D182F /* BluBankTaskTests.swift */,
 			);
 			path = BluBankTaskTests;
@@ -352,7 +362,6 @@
 				D08514762B0F8978003D182F /* ViewModel */,
 				D08514752B0F896F003D182F /* ViewController */,
 				D08514772B0F8A22003D182F /* DetailModule.swift */,
-				D08514792B0F8A46003D182F /* DetailDAO.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -381,6 +390,23 @@
 				D08514862B0F9086003D182F /* Router.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D085148B2B12A701003D182F /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D085148C2B12A71D003D182F /* Environment.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		D085148E2B12A9E2003D182F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				D085148F2B12A9F1003D182F /* MockHomeRepository.swift */,
+				D08514952B12ABE3003D182F /* TransferDestinationViewModel+Stubbing.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -498,6 +524,7 @@
 				D08514712B0F506F003D182F /* HomeDAO.swift in Sources */,
 				D085141B2B0EAAF4003D182F /* HomeViewModelProtocol.swift in Sources */,
 				D08514802B0F8AA4003D182F /* DetailViewModelProtocol.swift in Sources */,
+				D085148D2B12A71D003D182F /* Environment.swift in Sources */,
 				D08514262B0EAE2B003D182F /* MoreInfo.swift in Sources */,
 				D08514822B0F8ABA003D182F /* DetaiViewModel.swift in Sources */,
 				D08514732B0F735C003D182F /* Loadable.swift in Sources */,
@@ -528,7 +555,6 @@
 				D085145C2B0EBD90003D182F /* IndicatorView.swift in Sources */,
 				D08514362B0EB0BC003D182F /* ReusableCell.swift in Sources */,
 				D08514602B0EBE2A003D182F /* IndicatorViewConfiguration.swift in Sources */,
-				D085147A2B0F8A46003D182F /* DetailDAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +562,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D08514922B12AA29003D182F /* TransferDestinationViewModel.swift in Sources */,
+				D08514942B12AB76003D182F /* HomeViewModel.swift in Sources */,
+				D08514962B12ABE3003D182F /* TransferDestinationViewModel+Stubbing.swift in Sources */,
+				D08514902B12A9F1003D182F /* MockHomeRepository.swift in Sources */,
+				D08514932B12AA40003D182F /* DatabaseManager.swift in Sources */,
+				D08514912B12AA1E003D182F /* HomeRepository.swift in Sources */,
 				D08513F92B0EAA0E003D182F /* BluBankTaskTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

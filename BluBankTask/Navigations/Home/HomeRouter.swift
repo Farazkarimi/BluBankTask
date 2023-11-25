@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HomeRouting: Router {
-    func showDetail(transferDestiation: TransferDestinationViewModel)
+    func showDetail(transferDestination: TransferDestinationViewModel)
 }
 
 final class HomeRouter: HomeRouting {
@@ -21,8 +21,8 @@ final class HomeRouter: HomeRouting {
         self.configuration = configuration
     }
 
-    func showDetail(transferDestiation: TransferDestinationViewModel) {
-        let vc = DetailModule.build(with: DetailModule.Configuration(transferDestiation: transferDestiation, 
+    func showDetail(transferDestination: TransferDestinationViewModel) {
+        let vc = DetailModule.build(with: DetailModule.Configuration(transferDestination: transferDestination, 
                                                                      repository: configuration.repository))
         vc.modalPresentationStyle = .pageSheet
         viewController?.present(vc, animated: true)

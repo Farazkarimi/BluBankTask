@@ -13,7 +13,7 @@ enum TransferEndpoints {
 
 extension TransferEndpoints: EndpointProtocol {
     var baseURL: String {
-        "https://64659280-600a-4e82-9906-da927444fe92.mock.pstmn.io/"
+        Environment.baseURL
     }
 
     var path: String {
