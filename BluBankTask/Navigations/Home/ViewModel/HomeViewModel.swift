@@ -20,6 +20,12 @@ final class HomeViewModel: HomeViewModelProtocol {
     private var page: Int = 0
     private var numberOfPages = 5
 
+
+    enum SelectedSection {
+        case all
+        case favorites
+    }
+
     enum FetchError: Error {
         case cancelled
     }
@@ -127,7 +133,7 @@ final class HomeViewModel: HomeViewModelProtocol {
                                                                               hasMore: page != numberOfPages)))
     }
 
-    private func showDetail(at indexPath: IndexPath, section: HomeViewController.Section) {
+    private func showDetail(at indexPath: IndexPath, section: HomeViewModel.SelectedSection) {
         let model: TransferDestinationViewModel
         switch section {
         case .favorites:

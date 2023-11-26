@@ -10,15 +10,12 @@
 		D08513E22B0EAA0B003D182F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08513E12B0EAA0B003D182F /* AppDelegate.swift */; };
 		D08513EB2B0EAA0E003D182F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D08513EA2B0EAA0E003D182F /* Assets.xcassets */; };
 		D08513EE2B0EAA0E003D182F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D08513EC2B0EAA0E003D182F /* LaunchScreen.storyboard */; };
-		D08513F92B0EAA0E003D182F /* BluBankTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08513F82B0EAA0E003D182F /* BluBankTaskTests.swift */; };
+		D08513F92B0EAA0E003D182F /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08513F82B0EAA0E003D182F /* HomeViewModelTests.swift */; };
 		D08514172B0EAA99003D182F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514152B0EAA99003D182F /* HomeViewController.swift */; };
 		D08514182B0EAA99003D182F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08514162B0EAA99003D182F /* HomeViewController.xib */; };
 		D085141B2B0EAAF4003D182F /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085141A2B0EAAF4003D182F /* HomeViewModelProtocol.swift */; };
 		D085141D2B0EAB01003D182F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085141C2B0EAB01003D182F /* HomeViewModel.swift */; };
 		D08514202B0EABD4003D182F /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085141F2B0EABD4003D182F /* HomeModule.swift */; };
-		D08514242B0EAE14003D182F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514232B0EAE14003D182F /* Card.swift */; };
-		D08514262B0EAE2B003D182F /* MoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514252B0EAE2B003D182F /* MoreInfo.swift */; };
-		D08514282B0EAE3E003D182F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514272B0EAE3E003D182F /* Person.swift */; };
 		D085142A2B0EAE5A003D182F /* TransferDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514292B0EAE5A003D182F /* TransferDestination.swift */; };
 		D085142C2B0EAE72003D182F /* TransferDestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085142B2B0EAE72003D182F /* TransferDestinationViewModel.swift */; };
 		D08514302B0EAF47003D182F /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085142E2B0EAF47003D182F /* HeaderCollectionReusableView.swift */; };
@@ -62,6 +59,18 @@
 		D08514932B12AA40003D182F /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085146E2B0F5040003D182F /* DatabaseManager.swift */; };
 		D08514942B12AB76003D182F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085141C2B0EAB01003D182F /* HomeViewModel.swift */; };
 		D08514962B12ABE3003D182F /* TransferDestinationViewModel+Stubbing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514952B12ABE3003D182F /* TransferDestinationViewModel+Stubbing.swift */; };
+		D08514972B12AC7E003D182F /* TransferDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514292B0EAE5A003D182F /* TransferDestination.swift */; };
+		D08514982B12B05D003D182F /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085141A2B0EAAF4003D182F /* HomeViewModelProtocol.swift */; };
+		D08514992B12B06D003D182F /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514722B0F735C003D182F /* Loadable.swift */; };
+		D085149B2B12B37C003D182F /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085146C2B0F500B003D182F /* UserDefaultsProtocol.swift */; };
+		D085149C2B12B38C003D182F /* HomeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514702B0F506F003D182F /* HomeDAO.swift */; };
+		D085149D2B12B398003D182F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514672B0F4CE1003D182F /* NetworkManager.swift */; };
+		D085149E2B12B3A4003D182F /* EndpointHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514652B0F4CC7003D182F /* EndpointHelpers.swift */; };
+		D085149F2B12B3B3003D182F /* TransferEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514632B0F4CB3003D182F /* TransferEndPoints.swift */; };
+		D08514A02B12B3C6003D182F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085148C2B12A71D003D182F /* Environment.swift */; };
+		D08514A12B12B457003D182F /* ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514332B0EB0A6003D182F /* ClassName.swift */; };
+		D08514A22B12B483003D182F /* DetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085147F2B0F8AA4003D182F /* DetailViewModelProtocol.swift */; };
+		D08514A32B12B486003D182F /* DetaiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08514812B0F8ABA003D182F /* DetaiViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,15 +90,12 @@
 		D08513ED2B0EAA0E003D182F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D08513EF2B0EAA0E003D182F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D08513F42B0EAA0E003D182F /* BluBankTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluBankTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D08513F82B0EAA0E003D182F /* BluBankTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluBankTaskTests.swift; sourceTree = "<group>"; };
+		D08513F82B0EAA0E003D182F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		D08514152B0EAA99003D182F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D08514162B0EAA99003D182F /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		D085141A2B0EAAF4003D182F /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
 		D085141C2B0EAB01003D182F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D085141F2B0EABD4003D182F /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
-		D08514232B0EAE14003D182F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Card.swift; path = BluBankTask/Navigations/Home/Card.swift; sourceTree = SOURCE_ROOT; };
-		D08514252B0EAE2B003D182F /* MoreInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
-		D08514272B0EAE3E003D182F /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D08514292B0EAE5A003D182F /* TransferDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferDestination.swift; sourceTree = "<group>"; };
 		D085142B2B0EAE72003D182F /* TransferDestinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferDestinationViewModel.swift; sourceTree = "<group>"; };
 		D085142E2B0EAF47003D182F /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -186,7 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				D085148E2B12A9E2003D182F /* Mocks */,
-				D08513F82B0EAA0E003D182F /* BluBankTaskTests.swift */,
+				D08513F82B0EAA0E003D182F /* HomeViewModelTests.swift */,
 			);
 			path = BluBankTaskTests;
 			sourceTree = "<group>";
@@ -265,9 +271,6 @@
 		D08514222B0EADF7003D182F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				D08514232B0EAE14003D182F /* Card.swift */,
-				D08514252B0EAE2B003D182F /* MoreInfo.swift */,
-				D08514272B0EAE3E003D182F /* Person.swift */,
 				D08514292B0EAE5A003D182F /* TransferDestination.swift */,
 				D085142B2B0EAE72003D182F /* TransferDestinationViewModel.swift */,
 			);
@@ -525,11 +528,9 @@
 				D085141B2B0EAAF4003D182F /* HomeViewModelProtocol.swift in Sources */,
 				D08514802B0F8AA4003D182F /* DetailViewModelProtocol.swift in Sources */,
 				D085148D2B12A71D003D182F /* Environment.swift in Sources */,
-				D08514262B0EAE2B003D182F /* MoreInfo.swift in Sources */,
 				D08514822B0F8ABA003D182F /* DetaiViewModel.swift in Sources */,
 				D08514732B0F735C003D182F /* Loadable.swift in Sources */,
 				D085144C2B0EB33B003D182F /* AllItemsViewConfiguration.swift in Sources */,
-				D08514242B0EAE14003D182F /* Card.swift in Sources */,
 				D08514382B0EB0D2003D182F /* UICollectionView+ReusableCell.swift in Sources */,
 				D08514412B0EB19A003D182F /* Xibbed.swift in Sources */,
 				D08514342B0EB0A6003D182F /* ClassName.swift in Sources */,
@@ -542,7 +543,6 @@
 				D085143B2B0EB13F003D182F /* FavoritesCollectionViewCell.swift in Sources */,
 				D08514202B0EABD4003D182F /* HomeModule.swift in Sources */,
 				D08514172B0EAA99003D182F /* HomeViewController.swift in Sources */,
-				D08514282B0EAE3E003D182F /* Person.swift in Sources */,
 				D08514482B0EB282003D182F /* AllItemsView.swift in Sources */,
 				D085143D2B0EB16E003D182F /* FavoritesView.swift in Sources */,
 				D085144E2B0EB43B003D182F /* UIImageView+Extension.swift in Sources */,
@@ -562,13 +562,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D08514982B12B05D003D182F /* HomeViewModelProtocol.swift in Sources */,
+				D08514A02B12B3C6003D182F /* Environment.swift in Sources */,
 				D08514922B12AA29003D182F /* TransferDestinationViewModel.swift in Sources */,
 				D08514942B12AB76003D182F /* HomeViewModel.swift in Sources */,
+				D085149D2B12B398003D182F /* NetworkManager.swift in Sources */,
 				D08514962B12ABE3003D182F /* TransferDestinationViewModel+Stubbing.swift in Sources */,
+				D08514972B12AC7E003D182F /* TransferDestination.swift in Sources */,
+				D085149B2B12B37C003D182F /* UserDefaultsProtocol.swift in Sources */,
 				D08514902B12A9F1003D182F /* MockHomeRepository.swift in Sources */,
+				D08514A12B12B457003D182F /* ClassName.swift in Sources */,
 				D08514932B12AA40003D182F /* DatabaseManager.swift in Sources */,
+				D08514A22B12B483003D182F /* DetailViewModelProtocol.swift in Sources */,
 				D08514912B12AA1E003D182F /* HomeRepository.swift in Sources */,
-				D08513F92B0EAA0E003D182F /* BluBankTaskTests.swift in Sources */,
+				D085149E2B12B3A4003D182F /* EndpointHelpers.swift in Sources */,
+				D085149C2B12B38C003D182F /* HomeDAO.swift in Sources */,
+				D08513F92B0EAA0E003D182F /* HomeViewModelTests.swift in Sources */,
+				D085149F2B12B3B3003D182F /* TransferEndPoints.swift in Sources */,
+				D08514992B12B06D003D182F /* Loadable.swift in Sources */,
+				D08514A32B12B486003D182F /* DetaiViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

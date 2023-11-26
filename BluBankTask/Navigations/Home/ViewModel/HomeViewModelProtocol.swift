@@ -58,5 +58,5 @@ enum HomeViewModelAction {
     case getTransferList(_ refresh: Bool = false)
     case toggleFavorite(IndexPath)
     case loadMoreIfNeeded(IndexPath)
-    case showDetail(IndexPath, HomeViewController.Section)
+    case showDetail(IndexPath, HomeViewModel.SelectedSection)
 }
